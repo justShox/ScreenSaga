@@ -34,7 +34,8 @@ def exact_category(request, pk):
     all_category = Category.objects.get(id=pk)
     movies = Movie.objects.filter(category=all_category)
     context = {
-        'movies': movies
+        'movies': movies,
+        'category': all_category
     }
     return render(request, 'category.html', context)
 
@@ -47,16 +48,6 @@ def exact_movie(request, pk):
         'movie': all_movie
     }
     return render(request, 'movie.html', context)
-
-
-# Информация о контактах
-def contact(request):
-    return render(request, 'contact.html')
-
-
-# Информация о проекте
-def about(request):
-    return render(request, 'about.html')
 
 
 # Поиск фильмов
