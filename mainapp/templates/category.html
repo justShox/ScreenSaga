@@ -9,12 +9,16 @@
 </head>
 <body>
 {% block content %}
-{% for i in movies %}
-<a href="/movie/{{ i.id }}"><img width="208px" src="{{ i.movie_image.url }}" alt="Xz"></a>
-{% endfor %}
-<br>
-<hr>
-<a href="/">Перейти на главную</a>
+<div style="background-color: #c4dce8">
+    <h3>Результаты по категории: {{movies.category}}</h3>
+    {% for i in movies %}
+    <span><h5 style="margin-left: 35px">{{i.name}}</h5></span>
+    <a href="/movie/{{ i.id }}"><img style="margin-left: 20px" width="208px" src="{{ i.movie_image.url }}" alt="Xz"></a>
+    <hr>
+    <br>
+    {% endfor %}
+    <a href="/" style="text-decoration: none; text-align: center; display: flex">Перейти на главную</a>
+</div>
 {% endblock %}
 </body>
 </html>
